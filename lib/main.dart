@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ToastContext().init(context);
 
-    var phoneNumber = '+91 88267 63464';
+    var phoneNumber = '+1 234 567 8901';
     var email = 'rishabhgupta2804@gmail.com';
     var github = 'Rishabh2804';
     var linkedIn = 'rishabh-gupta-2804';
