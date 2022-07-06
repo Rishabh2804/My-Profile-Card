@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My App',
       debugShowCheckedModeBanner: false,
-      home: ScaffoldMessenger(
-        child: Scaffold(
-          backgroundColor: const Color.fromARGB(255, 38, 144, 133),
-          body: Center(
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 38, 144, 133),
+        body: SingleChildScrollView(
+          child: Center(
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
