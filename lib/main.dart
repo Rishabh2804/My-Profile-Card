@@ -1,12 +1,16 @@
 // ignore_for_file: avoid_unnecessary_containers
 
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:toast/toast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,6 +35,9 @@ class MyApp extends StatelessWidget {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 const CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('images/avatar.png'),
@@ -68,12 +75,11 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 500,
+                  width: 400,
                   child: Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     shadowColor: Colors.teal,
                     color: const Color.fromARGB(255, 202, 249, 249),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: ListTile(
                         onTap: () => launchURL('tel:$phoneNumber'),
                         leading: const Icon(
@@ -92,15 +98,14 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                
                 SizedBox(
                   // key: key,
-                  width: 500,
+                  width: 400,
                   child: Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     shadowColor: Colors.teal,
                     color: const Color.fromARGB(255, 202, 249, 249),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: ListTile(
                         onTap: () => launchURL('mailto:$email'),
                         leading: const Icon(
@@ -120,14 +125,13 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                
                 SizedBox(
-                  width: 500,
+                  width: 400,
                   child: Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     shadowColor: Colors.teal,
                     color: const Color.fromARGB(255, 202, 249, 249),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: ListTile(
                         onTap: () =>
                             launchURL('https://www.linkedin.com/in/$linkedIn'),
@@ -146,15 +150,14 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
+                
+                SizedBox(                  
                   // key: key,
-                  width: 500,
+                  width: 400,
                   child: Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     shadowColor: Colors.teal,
                     color: const Color.fromARGB(255, 202, 249, 249),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: ListTile(
                         onTap: () => launchURL('https://github.com/$github'),
                         leading: const Icon(
@@ -162,7 +165,6 @@ class MyApp extends StatelessWidget {
                           color: Color.fromARGB(255, 0, 0, 0),
                           size: 25,
                         ),
-                        // hoverColor: const Color.fromARGB(255, 162, 187, 190),
                         trailing: Text(
                           github,
                           style: GoogleFonts.originalSurfer(
@@ -173,16 +175,14 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                ),
+                  ),                
                 SizedBox(
                   // key: key,
-                  width: 500,
+                  width: 400,
                   child: Card(
+                    margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     shadowColor: Colors.teal,
                     color: const Color.fromARGB(255, 202, 249, 249),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: ListTile(
                         onTap: () => launchURL(
                             'https://stackoverflow.com/users/17798976/$stackOverflow'),
@@ -203,7 +203,7 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                
               ],
             ),
           ),
