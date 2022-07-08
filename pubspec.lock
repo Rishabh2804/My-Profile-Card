@@ -104,6 +104,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+<<<<<<< HEAD
   flutter_feather_icons:
     dependency: "direct main"
     description:
@@ -111,6 +112,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0+1"
+=======
+  flutter_icons:
+    dependency: "direct main"
+    description:
+      name: flutter_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+>>>>>>> 755035beaf3a237f9464c13ced5912c8a34932f8
   flutter_launcher_name:
     dependency: "direct dev"
     description:
