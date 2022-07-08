@@ -1,8 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 // import 'package:flutter/services.dart';
+
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,8 +18,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ToastContext().init(context);
-
     var phoneNumber = '+1 234 567 8901';
     var email = 'rishabhgupta2804@gmail.com';
     var github = 'Rishabh2804';
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 50,
+          toolbarHeight: 45,
           centerTitle: true,
           title: Text(
             'A little about me!',
@@ -41,21 +40,11 @@ class MyApp extends StatelessWidget {
               letterSpacing: 3,
               color: Colors.white,
             ),
-          ),
-          // actions: <Widget>[
-          //   Image.network(
-          //     'https://raw.githubusercontent.com/Rishabh2804/Rishabh2804/master/Resources/wave.gif',
-          //     height: 35,
-          //     width: 35,
-          //   ),
-          // ],
+          ),          
         ),
-        backgroundColor: Color.fromARGB(255, 36, 164, 151),
+        backgroundColor: Color.fromARGB(255, 61, 179, 167),
         body: SingleChildScrollView(
           child: Container(
-            // child: Banner(
-            //   message: 'Fork this repo',
-            //   location: BannerLocation.topStart,
             child: Center(
               child: Column(
                 children: [
@@ -106,7 +95,7 @@ class MyApp extends StatelessWidget {
                       color: const Color.fromARGB(255, 202, 249, 249),
                       child: ListTile(
                         onTap: () => launchURL('tel:$phoneNumber'),
-                        onLongPress: () => launchURL('sms:$phoneNumber'),
+                        onLongPress: () => copyToClipBoard(phoneNumber),
                         leading: const Icon(
                           Icons.phone,
                           color: Color.fromARGB(255, 74, 136, 152),
@@ -133,6 +122,7 @@ class MyApp extends StatelessWidget {
                       color: const Color.fromARGB(255, 202, 249, 249),
                       child: ListTile(
                         onTap: () => launchURL('mailto:$email'),
+                        onLongPress: () => copyToClipBoard(email),
                         leading: const Icon(
                           Icons.mail,
                           color: Color.fromARGB(255, 152, 74, 110),
@@ -142,7 +132,7 @@ class MyApp extends StatelessWidget {
                         trailing: Text(
                           email,
                           style: GoogleFonts.niconne(
-                            fontSize: 21,
+                            fontSize: 20.5,
                             color: const Color.fromARGB(255, 152, 74, 110),
                             // fontWeight: FontWeight.w600,
                           ),
@@ -153,71 +143,72 @@ class MyApp extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.github,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          size: 30,
+                  Container(
+                    margin:
+                        const EdgeInsets.fromLTRB(5, 0, 20, 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.github,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            size: 30,
+                          ),
+                          onPressed: () =>
+                              launchURL('https://github.com/$github'),
                         ),
-                        onPressed: () =>
-                            launchURL('https://github.com/$github'),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.stackOverflow,
-                          color: Color.fromARGB(255, 244, 127, 36),
-                          size: 30,
+                        const SizedBox(
+                          width: 12,
                         ),
-                        onPressed: () => launchURL(
-                            'https://stackoverflow.com/users/17798976/$stackOverflow?tab=profile'),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.linkedin,
-                          color: Color.fromARGB(255, 37, 37, 214),
-                          size: 30,
+                        IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.stackOverflow,
+                            color: Color.fromARGB(255, 244, 127, 36),
+                            size: 30,
+                          ),
+                          onPressed: () => launchURL(
+                              'https://stackoverflow.com/users/17798976/$stackOverflow?tab=profile'),
                         ),
-                        onPressed: () =>
-                            launchURL('https://www.linkedin.com/in/$linkedIn'),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.twitter,
-                          color: Color.fromARGB(255, 29, 155, 250),
-                          size: 30,
+                        const SizedBox(
+                          width: 12,
                         ),
-                        onPressed: () =>
-                            launchURL('https://www.twitter.com/$twitter'),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.discord,
-                          color: Color.fromARGB(255, 88, 101, 242),
-                          size: 30,
+                        IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.linkedin,
+                            color: Color.fromARGB(255, 37, 37, 214),
+                            size: 30,
+                          ),
+                          onPressed: () => launchURL(
+                              'https://www.linkedin.com/in/$linkedIn'),
                         ),
-                        onPressed: () =>
-                            launchURL('https://www.discord.gg/$discord'),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                    ],
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.twitter,
+                            color: Color.fromARGB(255, 29, 155, 250),
+                            size: 30,
+                          ),
+                          onPressed: () =>
+                              launchURL('https://www.twitter.com/$twitter'),
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.discord,
+                            color: Color.fromARGB(255, 88, 101, 242),
+                            size: 30,
+                          ),
+                          onPressed: () =>
+                              launchURL('https://www.discord.gg/$discord'),
+                        ),
+                        
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -228,6 +219,10 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  copyToClipBoard(String text) {
+    Clipboard.setData(ClipboardData(text: text));
+  }
+  
   launchURL(String url) async {
     var redirect = Uri.parse(url);
     if (await canLaunchUrl(redirect)) {
